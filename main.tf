@@ -13,7 +13,7 @@ resource "aws_instance" "my_server" {
    ami           = data.aws_ami.amazonlinux.id  # Use the AMI ID from the data source
    instance_type = var.instance_type            # Use the instance type from variables
    key_name      = "${local.aws_key}"          # Specify the SSH key pair name
-   vpc_sercurity_group_ids = [aws_security_group.my_sg.id]
+   vpc_security_group_ids = [aws_security_group.my_sg.id]
    user_data = filebase64("wp_install.sh")
   
    # Add tags to the EC2 instance for identification
