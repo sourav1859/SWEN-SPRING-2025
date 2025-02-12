@@ -8,6 +8,16 @@ locals {
     aws_key = "CLD_AWS_KEY"   # SSH key pair name for EC2 instance access
 }
 
+# Configure the S3 backend for storing the Terraform state
+terraform {
+  backend "s3" {
+    bucket         = "aws-terraform-check-status-tf-bucket"
+    key            = "tfstate-folder/terraform.tfstate"
+    region         = "us-east-1"
+    encrypt = false
+  }
+}
+
 # EC2 instance resource definition
 resource "aws_instance" "my_server" {
    ami           = data.aws_ami.amazonlinux.id  # Use the AMI ID from the data source
