@@ -1,6 +1,6 @@
 # Security group for HTTP and SSH access
 resource "aws_security_group" "my_sg" {
-  name        = "my_security_group"
+  name        = "my_security_group-02"
   description = "Allow HTTP and SSH traffic"
 
   # Allow SSH access
